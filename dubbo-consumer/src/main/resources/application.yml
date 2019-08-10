@@ -1,11 +1,11 @@
 server:
   port: 9090
   display-name: cdubbo-consumer
-
+  context-path: /
 spring:
   dubbo:
     application:
       name: dubbo-consumer
     registry:
-      address: zookeeper://10.168.17.75:2181
-    scan: com.reapal.dubbo.consumer
+      address: zookeeper://127.0.0.1:2181
+    scan: com.reapal.dubbo.web

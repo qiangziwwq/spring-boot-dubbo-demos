@@ -47,7 +47,7 @@ public class UserController extends BaseController{
     @Reference(version = "1.0.0",check=false)
     private UserService userService;
 
-    @RequestMapping
+    @RequestMapping("/getAll")
     public ModelAndView getAll(ModelAndView mv,User user, Page<User> page) {
         Page<User> userPage = userService.selectPage(page,new EntityWrapper<>(user));
         mv.addObject("page",userPage);

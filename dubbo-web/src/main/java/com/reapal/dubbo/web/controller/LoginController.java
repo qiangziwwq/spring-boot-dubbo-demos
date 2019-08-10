@@ -46,22 +46,22 @@ public class LoginController extends BaseController{
         return mv;
     }
 
-//    @RequestMapping(value = "/login",method = RequestMethod.POST)
-//    public ModelAndView signIn(User user, RedirectAttributes redirectAttributes) {
-//        ModelAndView mv = new ModelAndView();
-//        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//        List<User> users = userService.queryListByWhere(user);
-//        if(users.size() == 1){
-//            users.get(0).setPassword(null);
-//            session.setAttribute("user",users.get(0));
-//            redirectAttributes.addFlashAttribute("message", "welcome to reapal");
-//            mv.setViewName("redirect:/index");
-//        }else{
-//            redirectAttributes.addFlashAttribute("message", "login error");
-//            mv.setViewName("redirect:/login");
-//        }
-//        return mv;
-//    }
+    @RequestMapping(value = "/signIn",method = RequestMethod.POST)
+    public ModelAndView signIn(User user, RedirectAttributes redirectAttributes) {
+        ModelAndView mv = new ModelAndView();
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+       User u = userService.queryByName(user.getUsername());
+        if(null!=u){
+            u.setPassword(null);
+            session.setAttribute("user",u);
+            redirectAttributes.addFlashAttribute("message", "welcome to reapal");
+            mv.setViewName("redirect:/index");
+        }else{
+            redirectAttributes.addFlashAttribute("message", "login error");
+            mv.setViewName("redirect:/login");
+        }
+        return mv;
+    }
 
     @RequestMapping(value = "/register",method = RequestMethod.GET)
     public ModelAndView register(User user, RedirectAttributes redirectAttributes) {

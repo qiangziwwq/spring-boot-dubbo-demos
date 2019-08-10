@@ -17,7 +17,7 @@ import java.util.List;
  */
 @Service(version = "1.0.0",retries = 0,timeout = 60000)
 public class UserRoleServiceImpl extends ServiceImpl<UserRoleMapper,UserRole> implements UserRoleService {
-
+    @Override
     public List<UserRole> getRoleByUser(User user){
         UserRole userRole = new UserRole();
         userRole.setUserId(user.getId());

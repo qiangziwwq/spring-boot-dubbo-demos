@@ -47,12 +47,12 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
      * @author lance
      * @param registry
      */
-    @Override
+    /*@Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new CommonInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/static/**");
         super.addInterceptors(registry);
-    }
+    }*/
 
 }

@@ -45,7 +45,7 @@ public class UserController extends BaseController{
     @Reference(version = "1.0.0",check=false)
     private UserService userService;
 
-    @RequestMapping
+    @RequestMapping("/getAll")
     public List<User> getAll(ModelAndView mv, User user) {
        return userService.selectList(null);
     }
